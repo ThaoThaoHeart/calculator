@@ -1,0 +1,224 @@
+.app-shell {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.calculator {
+  width: min(100%, 430px);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 251, 243, 0.9));
+  box-shadow: 0 30px 80px rgba(38, 23, 7, 0.3);
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+  animation: slideIn 550ms ease-out;
+}
+
+.calc-header {
+  margin-bottom: 1rem;
+}
+
+.calc-kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.calc-header h1 {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.display-panel {
+  border-radius: 1.25rem;
+  background: linear-gradient(180deg, rgba(33, 23, 14, 0.92), rgba(15, 12, 10, 1));
+  color: #fef8ed;
+  padding: 1rem 1.1rem;
+  min-height: 6.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.equation {
+  margin: 0;
+  min-height: 1.2rem;
+  color: #d2b89b;
+  font-size: 0.82rem;
+  font-family: var(--mono);
+}
+
+.display {
+  margin: 0.35rem 0 0;
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 600;
+  line-height: 1.05;
+  text-align: right;
+  word-break: break-all;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.72rem;
+}
+
+.locked-note {
+  margin: 0 0 1rem;
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.7rem;
+  background: #2a1d12;
+  color: #f8e8d2;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+}
+
+.digit-row {
+  display: contents;
+}
+
+.btn {
+  border: 0;
+  border-radius: 1rem;
+  padding: 0.95rem 0.5rem;
+  font-size: 1.15rem;
+  font-family: var(--heading);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 130ms ease, box-shadow 130ms ease, filter 130ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(15, 12, 10, 0.3);
+  outline-offset: 2px;
+}
+
+.btn-number {
+  background: #fff6e8;
+  color: #2a1d12;
+  box-shadow: inset 0 -3px 0 rgba(42, 29, 18, 0.08);
+}
+
+.btn-function {
+  background: #2a1d12;
+  color: #fff8ed;
+}
+
+.btn-operator {
+  background: #d95f2c;
+  color: white;
+}
+
+.btn-equals {
+  grid-column: span 3;
+  background: linear-gradient(120deg, #e14f10, #f2a91f);
+  color: #1f0f00;
+  box-shadow: 0 12px 25px rgba(225, 79, 16, 0.25);
+}
+
+.btn-zero {
+  grid-column: span 2;
+}
+
+.paywall {
+  margin-top: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(42, 29, 18, 0.18);
+  background: #fff4e6;
+  padding: 0.95rem;
+  animation: slideIn 300ms ease-out;
+}
+
+.paywall-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.paywall-copy {
+  margin: 0.3rem 0 0.7rem;
+  color: #6c4e36;
+  font-size: 0.88rem;
+}
+
+.paywall-card {
+  border-radius: 0.8rem;
+  background: linear-gradient(120deg, #2b2017, #533a2a);
+  color: #f8e8d2;
+  padding: 0.7rem;
+  margin-bottom: 0.75rem;
+}
+
+.paywall-card p {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+.paywall-card p + p {
+  margin-top: 0.35rem;
+}
+
+.pay-button {
+  width: 100%;
+  border: 0;
+  border-radius: 0.8rem;
+  padding: 0.75rem;
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #170a00;
+  background: linear-gradient(120deg, #f2a91f, #e14f10);
+}
+
+.pay-button:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+.paywall-success {
+  margin: 0.55rem 0 0;
+  color: #6f3b12;
+  font-size: 0.82rem;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    border-radius: 1.3rem;
+    padding: 1rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.85rem 0.4rem;
+    border-radius: 0.8rem;
+  }
+}
