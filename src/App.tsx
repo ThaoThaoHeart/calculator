@@ -215,14 +215,14 @@ function App() {
   }
 
   const toggleSign = () => {
-    if (display === '0' || display === 'Error' || lockedResult !== null) {
+    if (display === '0' || display === 'Error' || lockedResult !== null || waitingForOperand) {
       return
     }
     setDisplay((current) => (current.startsWith('-') ? current.slice(1) : `-${current}`))
   }
 
   const toPercent = () => {
-    if (display === 'Error' || lockedResult !== null) {
+    if (display === 'Error' || lockedResult !== null || waitingForOperand) {
       return
     }
 
